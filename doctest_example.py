@@ -51,7 +51,7 @@ def fib(n):
         raise OverflowError("n is too large")
     
     # Here is the magic formula:
-    return (PHI**n - (-1/PHI)**n)/math.sqrt(5)
+    return int((PHI**n - (-1/PHI)**n)/math.sqrt(5))
     
     
     # change the return statement to the line below
@@ -59,5 +59,15 @@ def fib(n):
     # return int((PHI**n - (-1/PHI)**n)/math.sqrt(5))
                 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+    #import doctest
+    #doctest.testmod()
+    
+    
+    try:
+        num = int(input("Enter a number:"))
+        print(f"The {num}th fib number is {fib(num)}")
+        
+    except Exception as e:
+        print("invalid input:" + str(e) )
+    
+    
