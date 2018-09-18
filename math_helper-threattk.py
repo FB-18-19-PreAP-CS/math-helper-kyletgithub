@@ -4,6 +4,11 @@ from math import *
 def distance(x1,y1,x2,y2):
     ''' returns the distance between points
         (x1, y1) and (x2, y2)
+        
+        >>> distance(0,0,0,0)
+        0.0
+        
+        
     '''
     y = y2 - y1
     x = x2 - x1
@@ -12,7 +17,9 @@ def distance(x1,y1,x2,y2):
     return d
 
 
-
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
 
 
 
