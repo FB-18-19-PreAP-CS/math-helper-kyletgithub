@@ -8,6 +8,17 @@ def distance(x1,y1,x2,y2):
         >>> distance(0,0,0,0)
         0.0
         
+        >>> distance(5,5,10,10)
+        7.07
+        
+        >>> distance(6,8,9,12)
+        5.0
+        
+        >>> distance(10000,5000,15000,20000)
+        15811.39
+        
+        >>> distance(1,2,3,4)
+        2.83 
         
     '''
     y = y2 - y1
@@ -23,6 +34,17 @@ def pythag(a, b):
         >>> pythag(0,0)
         0.0
         
+        >>> pythag(3,4)
+        5.0
+        
+        >>> pythag(-5,10)
+        11.18
+        
+        >>> pythag(20,30)
+        36.06
+        
+        >>> pythag(-5,-9)
+        10.3
         
     '''
     c = sqrt(a**2 + b**2)
@@ -33,8 +55,14 @@ def quadratic_form(a, b, c):
     ''' applies the quadratic formula to a, b and c
         and returns the zeros
         
+        >>> quadratic_form(1, 5, 6)
+        ((-2.0, 0), (-3.0, 0))
+               
         >>> quadratic_form(1, 5, 10)
         "function doesn't cross x-axis"
+        
+        >>> quadratic_form(2, 4, -6)
+        ((1.0, 0), (-3.0, 0))
         
     '''
     d = b**2 - 4 * a * c
@@ -46,6 +74,37 @@ def quadratic_form(a, b, c):
     zero2 = round(zero2, 1)
     
     return (zero1, 0), (zero2, 0)
+
+def slope(x1, y1, x2, y2):
+    ''' returns slope between points (x1,y1)
+        and (x2,y2)
+        >>> slope(1,2,3,4)
+        1.0
+        
+        >>> slope(-5,6,-8,12)
+        -2.0
+        
+        >>> slope(1,4,1,6)
+        Traceback (most recent call last):
+            ...
+        ValueError: denominator cannot equal zero
+        
+    '''
+    y = y2 - y1
+    x = x2 - x1
+    if x == 0:
+        raise ValueError('denominator cannot equal zero')
+    return y/x
+
+def circum(r):
+    ''' returns he cirumference of a circle when given
+        the radius, rounded to 2 deciaml places
+        
+        >>> circum(5)
+        31.42
+        
+    '''
+    return round(pi * 2 * r ,2)
 
 if __name__ == "__main__":
     import doctest
