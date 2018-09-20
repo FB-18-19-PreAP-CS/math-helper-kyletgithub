@@ -101,6 +101,11 @@ def slope(x1, y1, x2, y2):
         >>> slope(7,2,4,1)
         0.3
         
+        >>> slope(1,2,1,2)
+        Traceback (most recent call last):
+            ...
+        ValueError: denominator cannot equal zero
+        
     '''
     y = y2 - y1
     x = x2 - x1
@@ -114,6 +119,18 @@ def circum(r):
         
         >>> circum(5)
         31.42
+        
+        >>> circum(0)
+        0.0
+        
+        >>> circum(10)
+        62.83
+        
+        >>> circum(20000)
+        125663.71
+        
+        >>> circum(-3)
+        -18.85
         
     '''
     return round(pi * 2 * r ,2)
