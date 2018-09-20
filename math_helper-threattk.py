@@ -18,7 +18,7 @@ def distance(x1,y1,x2,y2):
         15811.39
         
         >>> distance(1,2,3,4)
-        2.83 
+        2.83
         
     '''
     y = y2 - y1
@@ -64,12 +64,21 @@ def quadratic_form(a, b, c):
         >>> quadratic_form(2, 4, -6)
         ((1.0, 0), (-3.0, 0))
         
+        >>> quadratic_form(1, -4, 3)
+        ((3.0, 0), (1.0, 0))
+        
+        >>> quadratic_form(3, 7, 4)
+        ((-1.0, 0), (-1.3, 0))
+
+        
     '''
-    d = b**2 - 4 * a * c
+    d = b**2 - (4 * a * c)
     if d < 0:
         return "function doesn't cross x-axis"
-    zero1 = ((-b + sqrt(d))/2*a)
-    zero2 = ((-b - sqrt(d))/2*a)
+    zero1 = (-b + sqrt(d))
+    zero2 = (-b - sqrt(d))
+    zero1 = zero1/(2*a)
+    zero2 = zero2/(2*a)
     zero1 = round(zero1, 1)
     zero2 = round(zero2, 1)
     
@@ -89,12 +98,15 @@ def slope(x1, y1, x2, y2):
             ...
         ValueError: denominator cannot equal zero
         
+        >>> slope(7,2,4,1)
+        0.3
+        
     '''
     y = y2 - y1
     x = x2 - x1
     if x == 0:
         raise ValueError('denominator cannot equal zero')
-    return y/x
+    return round(y/x, 1)
 
 def circum(r):
     ''' returns he cirumference of a circle when given
