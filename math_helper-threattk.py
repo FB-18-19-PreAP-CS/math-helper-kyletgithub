@@ -1,5 +1,34 @@
 from math import *
 
+def main():
+    print("     MATH HELPER     ")
+    print("Choose a formula: ")
+    print("1) Distance")
+    print("2) Pythagorean Theorem")
+    print("3) Quadratic Formula")
+    print("4) Slope")
+    print("5) Circumference")
+    ans = input('> ')
+    ans = int(ans)
+    answers = {1,2,3,4,5}
+    while True:
+        if ans not in answers:
+            print("Not Valid Input")
+            ans = input('> ')
+        else:
+            break
+    
+    if ans == 1:
+            print("     DISTANCE FORMULA     ")
+            print("ENTER: 'x1,y1,x2,y2'")
+            nums = input('> ')
+            nums = tuple(nums)
+            
+            
+
+        
+
+    
 
 def distance(x1,y1,x2,y2):
     ''' returns the distance between points
@@ -136,8 +165,10 @@ def circum(r):
     return round(pi * 2 * r ,2)
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+    #import doctest
+    #doctest.testmod()
+    main()
+    
 
 
 
