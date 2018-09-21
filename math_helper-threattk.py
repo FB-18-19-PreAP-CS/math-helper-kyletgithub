@@ -1,34 +1,72 @@
 from math import *
 
 def main():
-    print("     MATH HELPER     ")
-    print("Choose a formula: ")
-    print("1) Distance")
-    print("2) Pythagorean Theorem")
-    print("3) Quadratic Formula")
-    print("4) Slope")
-    print("5) Circumference")
-    ans = input('> ')
-    ans = int(ans)
-    answers = {1,2,3,4,5}
+    answers = ('1','2','3','4','5','6')
     while True:
+        print()
+        print("     MATH HELPER     ")
+        print("Choose a formula: ")
+        print("1) Distance")
+        print("2) Pythagorean Theorem")
+        print("3) Quadratic Formula")
+        print("4) Slope")
+        print("5) Circumference")
+        print("6) Quit Program")
+        print()
+        ans = (input('> '))
         if ans not in answers:
             print("Not Valid Input")
-            ans = input('> ')
         else:
-            break
-    
-    if ans == 1:
-            print("     DISTANCE FORMULA     ")
-            print("ENTER: 'x1,y1,x2,y2'")
-            nums = input('> ')
-            nums = tuple(nums)
+            if ans == '1':
+                print("====DISTANCE FORMULA====")
+                print("ENTER: 'x1'")
+                num1 = float(input('> '))
+                print("ENTER: 'y1'")
+                num2 = float(input('> '))
+                print("ENTER: 'x2'")
+                num3 = float(input('> '))
+                print("ENTER: 'y2'")
+                num4 = float(input('> '))                
+                print(distance(num1,num2,num3,num4))
             
-            
-
-        
-
-    
+            if ans == '2':
+                print("====PYTHAGOREAN THEOREM====")
+                print("ENTER: SIDE 1")
+                num1 = float(input('> '))
+                print("ENTER: SIDE 2")
+                num2 = float(input('> '))
+                print(pythag(num1,num2))
+                
+            if ans == '3':
+                print("====QUADRATIC FORMULA====")
+                print("ENTER: A")
+                num1 = float(input('> '))
+                print("ENTER: B")
+                num2 = float(input('> '))
+                print("ENTER: C")
+                num3 = float(input('> '))
+                print(quadratic_form(num1,num2,num3))
+                
+            if ans == '4':
+                print("====SLOPE====")
+                print("ENTER: x1")
+                num1 = float(input('> '))
+                print("ENTER: y1")
+                num2 = float(input('> '))
+                print("ENTER: x2")
+                num3 = float(input('> '))
+                print("ENTER: y2")
+                num4 = float(input('> '))
+                print(slope(num1,num2,num3,num4))
+                
+            if ans == '5':
+                print("====CIRCUMFERENCE====")
+                print("ENTER: RADIUS")
+                num = float(input('> '))
+                print(circum(num))
+                
+            if ans == '6':
+                break  
 
 def distance(x1,y1,x2,y2):
     ''' returns the distance between points
@@ -54,7 +92,7 @@ def distance(x1,y1,x2,y2):
     x = x2 - x1
     d = sqrt(y**2 + x**2)
     d = round(d, 2)
-    return d
+    return 'Distance: ' + str(d)
 
 def pythag(a, b):
     ''' returns the length of the hypotenuse
@@ -76,9 +114,11 @@ def pythag(a, b):
         10.3
         
     '''
+    if a == 0 or b == 0:
+        return 'Not a triangle'
     c = sqrt(a**2 + b**2)
     c = round(c, 2)
-    return c
+    return "Side C: " + str(c)
 
 def quadratic_form(a, b, c):
     ''' applies the quadratic formula to a, b and c
@@ -138,9 +178,12 @@ def slope(x1, y1, x2, y2):
     '''
     y = y2 - y1
     x = x2 - x1
-    if x == 0:
-        raise ValueError('denominator cannot equal zero')
-    return round(y/x, 1)
+    if x1 == x2 and y1 != y2:
+        return('undefined slope: vertical line')
+    if (x1, y1) == (x2, y2):
+        return('not a line')
+    ans = round(y/x, 1)
+    return 'Slope: ' + str(ans)
 
 def circum(r):
     ''' returns he cirumference of a circle when given
@@ -162,13 +205,16 @@ def circum(r):
         -18.85
         
     '''
-    return round(pi * 2 * r ,2)
+    c = round(pi * 2 * r ,2)
+    return 'Circumference: ' + str(c)
 
 if __name__ == "__main__":
     #import doctest
     #doctest.testmod()
     main()
     
+
+
 
 
 
