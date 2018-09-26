@@ -73,19 +73,19 @@ def distance(x1,y1,x2,y2):
         (x1, y1) and (x2, y2)
         
         >>> distance(0,0,0,0)
-        0.0
+        'Distance: 0.0'
         
         >>> distance(5,5,10,10)
-        7.07
+        'Distance: 7.07'
         
         >>> distance(6,8,9,12)
-        5.0
+        'Distance: 5.0'
         
         >>> distance(10000,5000,15000,20000)
-        15811.39
+        'Distance: 15811.39'
         
         >>> distance(1,2,3,4)
-        2.83
+        'Distance: 2.83'
         
     '''
     y = y2 - y1
@@ -99,23 +99,25 @@ def pythag(a, b):
         in a right triangle
 
         >>> pythag(0,0)
-        0.0
+        Traceback (most recent call last):
+            ...
+        ValueError: not a triangle
         
         >>> pythag(3,4)
-        5.0
-        
+        'Side C: 5.0'
+    
         >>> pythag(-5,10)
-        11.18
+        'Side C: 11.18'
         
         >>> pythag(20,30)
-        36.06
+        'Side C: 36.06'
         
         >>> pythag(-5,-9)
-        10.3
+        'Side C: 10.3'
         
     '''
     if a == 0 or b == 0:
-        return 'Not a triangle'
+        raise ValueError('not a triangle')
     c = sqrt(a**2 + b**2)
     c = round(c, 2)
     return "Side C: " + str(c)
@@ -128,7 +130,9 @@ def quadratic_form(a, b, c):
         ((-2.0, 0), (-3.0, 0))
                
         >>> quadratic_form(1, 5, 10)
-        "function doesn't cross x-axis"
+        Traceback (most recent call last):
+            ...
+        ValueError: no solution
         
         >>> quadratic_form(2, 4, -6)
         ((1.0, 0), (-3.0, 0))
@@ -143,7 +147,7 @@ def quadratic_form(a, b, c):
     '''
     d = b**2 - (4 * a * c)
     if d < 0:
-        return "function doesn't cross x-axis"
+        raise ValueError("no solution")
     zero1 = (-b + sqrt(d))
     zero2 = (-b - sqrt(d))
     zero1 = zero1/(2*a)
@@ -157,31 +161,31 @@ def slope(x1, y1, x2, y2):
     ''' returns slope between points (x1,y1)
         and (x2,y2)
         >>> slope(1,2,3,4)
-        1.0
+        'Slope: 1.0'
         
         >>> slope(-5,6,-8,12)
-        -2.0
+        'Slope: -2.0'
         
         >>> slope(1,4,1,6)
         Traceback (most recent call last):
             ...
-        ValueError: denominator cannot equal zero
+        ValueError: undefined slope: vertical line
         
         >>> slope(7,2,4,1)
-        0.3
+        'Slope: 0.3'
         
         >>> slope(1,2,1,2)
         Traceback (most recent call last):
             ...
-        ValueError: denominator cannot equal zero
+        ValueError: not a line
         
     '''
     y = y2 - y1
     x = x2 - x1
     if x1 == x2 and y1 != y2:
-        return('undefined slope: vertical line')
+        raise ValueError('undefined slope: vertical line')
     if (x1, y1) == (x2, y2):
-        return('not a line')
+        raise ValueError('not a line')
     ans = round(y/x, 1)
     return 'Slope: ' + str(ans)
 
@@ -190,22 +194,26 @@ def circum(r):
         the radius, rounded to 2 deciaml places
         
         >>> circum(5)
-        31.42
+        'Circumference: 31.42'
         
         >>> circum(0)
-        0.0
+        'Circumference: 0.0'
         
         >>> circum(10)
-        62.83
+        'Circumference: 62.83'
         
         >>> circum(20000)
-        125663.71
+        'Circumference: 125663.71'
         
         >>> circum(-3)
-        -18.85
+        'Radius cannot be negative'
         
     '''
+    if r < 0:
+        return 'Radius cannot be negative'
+    
     c = round(pi * 2 * r ,2)
+    
     return 'Circumference: ' + str(c)
 
 if __name__ == "__main__":
