@@ -92,6 +92,8 @@ def distance(x1,y1,x2,y2):
     x = x2 - x1
     d = sqrt(y**2 + x**2)
     d = round(d, 2)
+    print('')
+    print('')
     return 'Distance: ' + str(d)
 
 def pythag(a, b):
@@ -118,6 +120,8 @@ def pythag(a, b):
         return 'Not a triangle'
     c = sqrt(a**2 + b**2)
     c = round(c, 2)
+    print('')
+    print('')
     return "Side C: " + str(c)
 
 def quadratic_form(a, b, c):
@@ -150,7 +154,8 @@ def quadratic_form(a, b, c):
     zero2 = zero2/(2*a)
     zero1 = round(zero1, 1)
     zero2 = round(zero2, 1)
-    
+    print('')
+    print('')
     return (zero1, 0), (zero2, 0)
 
 def slope(x1, y1, x2, y2):
@@ -183,6 +188,8 @@ def slope(x1, y1, x2, y2):
     if (x1, y1) == (x2, y2):
         return('not a line')
     ans = round(y/x, 1)
+    print('')
+    print('')
     return 'Slope: ' + str(ans)
 
 def circum(r):
@@ -206,6 +213,8 @@ def circum(r):
         
     '''
     c = round(pi * 2 * r ,2)
+    print('')
+    print('')
     return 'Circumference: ' + str(c)
 
 if __name__ == "__main__":
