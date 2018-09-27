@@ -19,51 +19,81 @@ def main():
         else:
             if ans == '1':
                 print("====DISTANCE FORMULA====")
-                print("ENTER: 'x1'")
-                num1 = float(input('> '))
-                print("ENTER: 'y1'")
-                num2 = float(input('> '))
-                print("ENTER: 'x2'")
-                num3 = float(input('> '))
-                print("ENTER: 'y2'")
-                num4 = float(input('> '))                
-                print(distance(num1,num2,num3,num4))
+                while True:
+                    try:
+                        print("ENTER: 'x1'")
+                        num1 = float(input('> '))
+                        print("ENTER: 'y1'")
+                        num2 = float(input('> '))
+                        print("ENTER: 'x2'")
+                        num3 = float(input('> '))
+                        print("ENTER: 'y2'")
+                        num4 = float(input('> '))                
+                        print(distance(num1,num2,num3,num4))
+                        break
+                    except ValueError:
+                        print("Must be real number")
+                        print()
             
             if ans == '2':
                 print("====PYTHAGOREAN THEOREM====")
-                print("ENTER: SIDE 1")
-                num1 = float(input('> '))
-                print("ENTER: SIDE 2")
-                num2 = float(input('> '))
-                print(pythag(num1,num2))
+                while True:
+                    try:
+                        print("ENTER: SIDE 1")
+                        num1 = float(input('> '))
+                        print("ENTER: SIDE 2")
+                        num2 = float(input('> '))
+                        print(pythag(num1,num2))
+                        break
+                    except ValueError:
+                        print("Must be real number")
+                        print()
                 
             if ans == '3':
                 print("====QUADRATIC FORMULA====")
-                print("ENTER: A")
-                num1 = float(input('> '))
-                print("ENTER: B")
-                num2 = float(input('> '))
-                print("ENTER: C")
-                num3 = float(input('> '))
-                print(quadratic_form(num1,num2,num3))
+                while True:
+                    try:
+                        print("ENTER: A")
+                        num1 = float(input('> '))
+                        print("ENTER: B")
+                        num2 = float(input('> '))
+                        print("ENTER: C")
+                        num3 = float(input('> '))
+                        print(quadratic_form(num1,num2,num3))
+                        break
+                    except ValueError:
+                        print("Must be a real number")
+                        print()
                 
             if ans == '4':
                 print("====SLOPE====")
-                print("ENTER: x1")
-                num1 = float(input('> '))
-                print("ENTER: y1")
-                num2 = float(input('> '))
-                print("ENTER: x2")
-                num3 = float(input('> '))
-                print("ENTER: y2")
-                num4 = float(input('> '))
-                print(slope(num1,num2,num3,num4))
+                while True:
+                    try:
+                        print("ENTER: x1")
+                        num1 = float(input('> '))
+                        print("ENTER: y1")
+                        num2 = float(input('> '))
+                        print("ENTER: x2")
+                        num3 = float(input('> '))
+                        print("ENTER: y2")
+                        num4 = float(input('> '))
+                        print(slope(num1,num2,num3,num4))
+                        break
+                    except ValueError:
+                        print("Must be a real number")
+                        print()
                 
             if ans == '5':
                 print("====CIRCUMFERENCE====")
-                print("ENTER: RADIUS")
-                num = float(input('> '))
-                print(circum(num))
+                while True:
+                    try:
+                        print("ENTER: RADIUS")
+                        num = float(input('> '))
+                        print(circum(num))
+                        break
+                    except ValueError:
+                        print("Must be a real number")
+                        print()
                 
             if ans == '6':
                 break  
