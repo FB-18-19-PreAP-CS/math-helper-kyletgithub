@@ -31,8 +31,8 @@ def main():
                         num4 = float(input('> '))                
                         print(distance(num1,num2,num3,num4))
                         break
-                    except ValueError:
-                        print("Must be real number")
+                    except Exception as e:
+                        print(str(e))
                         print()
             
             if ans == '2':
@@ -45,8 +45,8 @@ def main():
                         num2 = float(input('> '))
                         print(pythag(num1,num2))
                         break
-                    except ValueError:
-                        print("Must be real number")
+                    except Exception as e:
+                        print(str(e))
                         print()
                 
             if ans == '3':
@@ -61,8 +61,8 @@ def main():
                         num3 = float(input('> '))
                         print(quadratic_form(num1,num2,num3))
                         break
-                    except ValueError:
-                        print("Must be a real number")
+                    except Exception as e:
+                        print(str(e))
                         print()
                 
             if ans == '4':
@@ -79,8 +79,8 @@ def main():
                         num4 = float(input('> '))
                         print(slope(num1,num2,num3,num4))
                         break
-                    except ValueError:
-                        print("Must be a real number")
+                    except Exception as e:
+                        print(str(e))
                         print()
                 
             if ans == '5':
@@ -91,8 +91,8 @@ def main():
                         num = float(input('> '))
                         print(circum(num))
                         break
-                    except ValueError:
-                        print("Must be a real number")
+                    except Exception as e:
+                        print(str(e))
                         print()
                 
             if ans == '6':
@@ -155,14 +155,6 @@ def pythag(a, b):
 def quadratic_form(a, b, c):
     ''' applies the quadratic formula to a, b and c
         and returns the zeros
-        
-        >>> quadratic_form(1, 5, 6)
-        ((-2.0, 0), (-3.0, 0))
-               
-        >>> quadratic_form(1, 5, 10)
-        Traceback (most recent call last):
-            ...
-        ValueError: no solution
         
         >>> quadratic_form(2, 4, -6)
         ((1.0, 0), (-3.0, 0))
